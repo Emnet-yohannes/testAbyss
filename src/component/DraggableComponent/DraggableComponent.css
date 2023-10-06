@@ -1,0 +1,12 @@
+.draggable-component {
+    position: absolute;
+    /* text-align: center; */
+    left:'50%';
+    top:'10%';
+    cursor: move;
+  }
+  
+  .draggable-component:active {
+    cursor: move;
+  }
+  
