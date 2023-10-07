@@ -1,7 +1,7 @@
-import  { useState } from "react";
+import { useState } from "react";
 import DraggableComponent from "./component/DraggableComponent/DraggableComponent";
 import HeaderBar from "./component/Appbar/Appbar";
-import ArrowContainer from "./component/BodyContainer/BodyContainer";
+import ArrowContainer from "./component/DirectionalControlsWrapper/DirectionalControlsWrapper";
 function App() {
   const [scale, setScale] = useState(1);
   const [center, setCenter] = useState(false);
@@ -21,8 +21,7 @@ function App() {
     }
   };
 
-  const handleZoomSelect = (value:number) => {
-    console.log(value / 100, "the calue");
+  const handleZoomSelect = (value: number) => {
     setScale(value / 100);
   };
 
@@ -48,7 +47,7 @@ function App() {
           alignItems: "center",
         }}
       >
-        <div style={{ width: "1100px", height: "440px" }}>
+        <div style={{ width: "100%", height: "90vh" }}>
           <ArrowContainer
             children={
               <DraggableComponent scale={scale} triggerCenter={center} />

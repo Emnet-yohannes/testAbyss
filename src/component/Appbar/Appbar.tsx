@@ -1,6 +1,7 @@
-import  { useState } from "react";
-import SelectDialog from "../DialogComponent/Select/Select";
+import { useState } from "react";
+import PercentageSelectorDialog from '../DialogComponent/PercentageSelectorDialog/PercentageSelectorDialog'
 import centerIcon from "../../assets/send.png";
+import "./Appbar.css";
 interface HeaderBarProps {
   handleZoomOut: () => void;
   handleZoomIn: () => void;
@@ -19,6 +20,7 @@ const HeaderBar = ({
   const closeDialog = () => {
     setShowDialogSelect(false);
   };
+
   return (
     <div>
       <div
@@ -30,7 +32,7 @@ const HeaderBar = ({
         }}
       >
         <div style={{ display: "flex", alignItems: "center" }}>
-          <div style={{ color: "#404549" }}>Services</div>
+          <div style={{ color: "black" }}>Services</div>
           <div
             style={{
               width: "12px",
@@ -50,72 +52,57 @@ const HeaderBar = ({
             O
           </div>
         </div>
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <button
+            style={{
+              color: "white",
+              border: "none",
+              backgroundColor: "#6c76e2",
+              borderRadius: "0px",
+              padding: "0.8em 0.8em",
+              marginLeft: "3px",
+              fontSize: "11px",
+            }}
+          >
+            LIST VIEW
+          </button>
+          <button
+            style={{
+              borderRadius: "0px",
+              backgroundColor: "white",
+              border: "none",
+
+              color: "#c6cfda",
+              padding: "0.5em 0.6em",
+              marginLeft: "3px",
+              fontSize: "12px",
+              width: "30px",
+              height: "100%",
+              overflow: "hidden",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundImage: `url(${centerIcon})`,
+            }}
+            onClick={handleCenter}
+          />
           <div>
             <button
-              style={{
-                color: "white",
-                border: "none",
-                backgroundColor: "#6c76e2",
-                borderRadius: "0px",
-                padding: "0.5em 0.6em",
-                marginLeft: "3px",
-                fontSize: "11px",
-              }}
-            >
-              LIST VIEW
-            </button>
-            <button
-              style={{
-                borderRadius: "0px",
-                backgroundColor: "white",
-                border: "none",
-
-                color: "#c6cfda",
-                padding: "0.5em 0.6em",
-                marginLeft: "3px",
-                fontSize: "12px",
-                width: "30px",
-                height: "25px",
-                overflow: "hidden",
-                backgroundRepeat: "no-repeat",
-                backgroundImage: `url(${centerIcon})`,
-                backgroundPosition: "center",
-              }}
-              onClick={handleCenter}
-            />
-          </div>
-          <div>
-            <button
-              style={{
-                borderRadius: "0px",
-                backgroundColor: "white",
-                color: "#c6cfda",
-                padding: "0.5em 0.6em",
-                marginLeft: "10px",
-                border: "none",
-
-                fontSize: "11px",
-              }}
+              className="button"
               onClick={handleZoomOut}
               disabled={scale <= 0.3}
             >
               -
             </button>
             <button
-              style={{
-                borderRadius: "0px",
-                backgroundColor: "white",
-                color: "#c6cfda",
-                padding: "0.5em 0.6em",
-                border: "none",
-
-                marginLeft: "3px",
-                fontSize: "11px",
-              }}
+              className="button"
               onClick={() => setShowDialogSelect(true)}
             >
-              {scale * 100} &#37;
+              {Math.floor(scale * 100)} &#37;
             </button>
             {showDialogSelect && (
               <div
@@ -129,7 +116,7 @@ const HeaderBar = ({
                   padding: "4px",
                 }}
               >
-                <SelectDialog
+                <PercentageSelectorDialog
                   onSelect={handleZoomSelect}
                   closeDialog={closeDialog}
                   scale={scale}
@@ -137,16 +124,7 @@ const HeaderBar = ({
               </div>
             )}
             <button
-              style={{
-                borderRadius: "0px",
-                border: "none",
-
-                backgroundColor: "white",
-                color: "#c6cfda",
-                padding: "0.5em 0.6em",
-                marginLeft: "3px",
-                fontSize: "11px",
-              }}
+              className="button"
               onClick={handleZoomIn}
               disabled={scale >= 1.5}
             >
@@ -156,7 +134,7 @@ const HeaderBar = ({
         </div>
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <hr style={{ height: "2px", color: "#eff0f6", width: "97%" }} />
+        <hr style={{ color: "#eff0f6", width: "97%" }} />
       </div>
     </div>
   );

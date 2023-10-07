@@ -10,7 +10,7 @@ const ArrowContainer: React.FC<ArrowContainerProps> = ({ children }) => {
       <div
         style={{
           position: "absolute",
-          top: 0,
+          top: "0",
           left: "50%",
           transform: "translateX(-50%)",
           textAlign: "center",
@@ -37,13 +37,13 @@ const ArrowContainer: React.FC<ArrowContainerProps> = ({ children }) => {
       </div>
       <div
         style={{
-          position: "absolute",
+          position: "fixed",
           top: "50%",
           right: 0,
           transform: "translateY(-50%)",
           textAlign: "center",
-          height: "50px",
-          width: "15px",
+          height: "80px",
+          width: "20px",
           backgroundColor: "#c6cfda",
           color: "white",
         }}
@@ -61,13 +61,13 @@ const ArrowContainer: React.FC<ArrowContainerProps> = ({ children }) => {
       </div>
       <div
         style={{
-          position: "absolute",
+          position: "fixed",
           top: "50%",
           left: 0,
           transform: "translateY(-50%)",
           textAlign: "center",
-          height: "50px",
-          width: "15px",
+          height: "80px",
+          width: "20px",
           backgroundColor: "#c6cfda",
           color: "white",
         }}

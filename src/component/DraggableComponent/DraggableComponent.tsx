@@ -15,8 +15,8 @@ const DraggableComponent = ({scale,triggerCenter}:DraggableComponentProps) => {
     const centerComponent = () => {
       const component = document.querySelector(".draggable-component");
       if (component) {
-        const x = (window.innerWidth - (component as HTMLElement).offsetWidth -1620 ) / 2;
-        const y = (window.innerHeight - (component as HTMLElement).offsetHeight-240) / 2;
+        const x = (window.innerWidth - (component as HTMLElement).offsetWidth -1380 ) / 2;
+        const y = (window.innerHeight - (component as HTMLElement).offsetHeight-380) / 2;
         
         setPosition({ x, y});
       }
